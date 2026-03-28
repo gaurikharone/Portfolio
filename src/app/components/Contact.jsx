@@ -22,8 +22,8 @@ export function Contact() {
   e.preventDefault();
 
   emailjs.send(
-    "service_wguxm8o",     // copy from EmailJS dashboard
-    "template_fnkgg6f",    // copy from EmailJS template
+  import.meta.env.VITE_SERVICE_ID,
+  import.meta.env.VITE_TEMPLATE_ID,    // copy from EmailJS template
     {
       name: formData.name,
       email: formData.email,
@@ -31,10 +31,11 @@ export function Contact() {
       message: formData.message,
       reply_to: formData.email  // ✅ Add this line
     },
-    "AOhk3rTFGYJ5zdvbc"      // copy from EmailJS dashboard
+     import.meta.env.VITE_PUBLIC_KEY      // copy from EmailJS dashboard
   )
-  .then(() => {
+  .then((response) => {
     alert("Message sent successfully ✅");
+    console.log("SUCCESS!", response.status, response.text);
 
     setFormData({
       name: "",
