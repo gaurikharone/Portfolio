@@ -9,6 +9,7 @@ import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import './portfolio-styles.css';
+ import { Helmet } from "react-helmet";
 
 function App() {
   useEffect(() => {
@@ -16,6 +17,17 @@ function App() {
   }, []);
 
   return (
+
+     <>
+      <Helmet>
+        <title>Gauri Kharone Portfolio</title>
+        <meta
+          name="description"
+          content="Full Stack Developer Portfolio showcasing projects, skills and experience"
+        />
+      </Helmet>
+      
+   
     <div className="portfolio-app">
       <Navigation />
       <Hero />
@@ -26,6 +38,7 @@ function App() {
       <Contact />
       <Footer />
     </div>
+    </>
   );
 }
 
